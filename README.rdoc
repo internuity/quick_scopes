@@ -6,7 +6,8 @@ These are especially useful for quick modifications to a query on an association
 The named scopes added are:
 * <tt>order</tt>
 * <tt>limit</tt>
-* <tt>with</tt>
+* <tt>with</tt> - alias for :include
+* <tt>where</tt> - alias for :conditions
 
 ==Examples
 With a User model having many Posts
@@ -23,3 +24,9 @@ With a User model having many Posts
   user.posts.with(:comments)
   user.posts.with(:comments, :author)
   user.posts.with({:comments => :author}, :author)
+
+  # Limit your results with conditions
+  user.posts.where(:published => true)
+
+==Note
+Some of these don't promote best practices for your code but can be very useful when working with the console.
