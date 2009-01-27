@@ -1,0 +1,25 @@
+A Rails plugin to automatically add some quick named_scopes to your models.
+
+These are especially useful for quick modifications to a query on an association.
+
+==The named_scopes
+The named scopes added are:
+* <tt>order</tt>
+* <tt>limit</tt>
+* <tt>with</tt>
+
+==Examples
+With a User model having many Posts
+  # Standard association method to retrieve all posts
+  user.posts
+  
+  # Order the posts
+  user.posts.order('created_at')
+
+  # Limit the results to a specific number
+  user.posts.limit(5)
+   
+  # Include other associated models
+  user.posts.with(:comments)
+  user.posts.with(:comments, :author)
+  user.posts.with({:comments => :author}, :author)
