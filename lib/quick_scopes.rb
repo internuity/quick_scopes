@@ -14,4 +14,8 @@ class ActiveRecord::Base
   named_scope :where, lambda { |*conditions| 
     { :conditions => conditions.size == 1 ? conditions[0] : conditions }
   }
+
+  named_scope :offset, lambda { |offset|       
+    { :offset => offset }
+  }
 end

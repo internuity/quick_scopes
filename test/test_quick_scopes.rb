@@ -17,6 +17,14 @@ class QuickScopesTest < Test::Unit::TestCase
       should "have a with scope" do
         assert Post.scopes.include?(:with)
       end
+
+      should "have a where scope" do
+        assert Post.scopes.include?(:where)
+      end
+
+      should "have a offset scope" do
+        assert Post.scopes.include?(:offset)
+      end
     end
   end
 
@@ -43,6 +51,21 @@ class QuickScopesTest < Test::Unit::TestCase
     should "return 2 comments when limited to 2" do
       #Not sure why I have to add to_a?
       assert_equal 2, @post.comments.limit(2).to_a.size
+    end
+  end
+
+  context "using the offset named_scope" do
+    setup {
+      @post = Post.first
+    }
+
+    should "return 2 comments when offset by 1" do
+      assert_equal 2, @post.comments.limit(3).offset(1).to_a.size
+    end
+
+    should "return 1 comments when offset by 2" do
+      #Not sure why I have to add to_a?
+      assert_equal 1, @post.comments.limit(3).offset(2).to_a.size
     end
   end
 

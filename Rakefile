@@ -31,7 +31,7 @@ end
 
 spec = Gem::Specification.new do |s| 
   s.name              = "quick_scopes"
-  s.version           = "0.1"
+  s.version           = "0.2"
   s.author            = "Andrew Timberlake"
   s.email             = "andrew@andrewtimberlake.com"
   s.homepage          = "http://www.internuity.net/projects/quick_scopes"

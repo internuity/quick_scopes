@@ -6,6 +6,7 @@ These are especially useful for quick modifications to a query on an association
 The named scopes added are:
 * <tt>order</tt>
 * <tt>limit</tt>
+* <tt>offset</tt>
 * <tt>with</tt> - alias for :include
 * <tt>where</tt> - alias for :conditions
 
@@ -19,6 +20,9 @@ With a User model having many Posts
 
   # Limit the results to a specific number
   user.posts.limit(5)
+
+  # Offset the results
+  user.posts.offset(5)
    
   # Include other associated models
   user.posts.with(:comments)
